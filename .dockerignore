@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+*.log
+.git
+.github
+.vscode
+README.md
+coverage
+.nyc_output
+.puppeteer-looker-profile
+logs
+uploads
+tmp
