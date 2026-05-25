@@ -3,7 +3,7 @@ FROM node:20-bookworm-slim AS build
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN npm install --force 
 
 COPY tsconfig.json nest-cli.json ./
 COPY src ./src
@@ -28,8 +28,8 @@ RUN apt-get update \
   && mkdir -p data uploads logs
 
 COPY package*.json ./
-RUN npm install --omit=dev \
-  && npm run install:browser
+RUN npm install --omit=dev --force \
+  && npm run install:browser --force
 
 COPY --from=build /app/dist ./dist
 COPY config ./config
